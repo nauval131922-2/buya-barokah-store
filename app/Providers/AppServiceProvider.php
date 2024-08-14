@@ -2,13 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Models\Feature\Cart;
+use Illuminate\Http\Request;
 use App\Models\Master\Category;
 use App\Models\Setting\WebConfig;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -43,5 +45,9 @@ class AppServiceProvider extends ServiceProvider
                 'app_logo' => WebConfig::where(['name' => 'app_logo'])->first()['file_path'] ?? '-',
             ]);
         }
+
+        Gate::define('admin', function (User $user) {
+            return $user->id == 1;
+        });
     }
 }
