@@ -36,6 +36,11 @@
                             <ul class="dropdown">
                                 <li><a href="{{ route('transaction.index') }}">Riwayat Belanja</a></li>
                                 <li><a href="{{ route('account.index') }}">Pengaturan Akun</a></li>
+                                {{-- jika yang login adalah admin, maka tampilkan menu dashboard --}}
+                                @if(auth()->user()->id == '1')
+                                    <li><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
+                                @endif
+
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <li>
