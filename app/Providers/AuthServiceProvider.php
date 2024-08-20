@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\URL;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -25,6 +26,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // uncomment code jika ingin menggunakan ngrok
+        // comment code jika ingin menggunakan local
+        if(config('app.env') === 'local') {
+            URL::forceScheme('https');
+        }
     }
 }
