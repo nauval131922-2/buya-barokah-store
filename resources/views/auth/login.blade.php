@@ -23,13 +23,7 @@
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <div class="text-right mb-3">
-                        <a href="{{ route('password.request') }}">Lupa Password ?</a>
-                    </div>
                     <button type="submit" class="site-btn w-100 rounded-0 mb-3">Masuk</button>
-                    <div class="text-center">
-                        <p>Belum Punya Akun ? <a href="{{ route('register') }}">Daftar Disini</a></p>
-                    </div>
                 </form>
             </div>
         </div>

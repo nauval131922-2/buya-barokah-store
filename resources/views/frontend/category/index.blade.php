@@ -21,11 +21,17 @@
             <div class="row">
                 @foreach ($data['category'] as $category)
                     <div class="col-lg-4 col-md-4 col-sm-4 p-0 ">
-                        <div class="categories__item set-bg" data-setbg="{{ asset('storage/' . $category->thumbnails) }}">
+
+                        <div class="categories__item">
+                            <div class="blur-bg"
+                                style="background-image: url('{{ asset('storage/' . $category->thumbnails) }}');">
+                            </div>
                             <div class="categories__text">
-                                <h4>{{ $category->name }}</h4>
-                                <p>{{ $category->Products()->count() }} item</p>
-                                <a href="{{ route('category.show',$category->slug) }}">Jelajahi</a>
+                                <h4 style="color: white" class="highlight-black">{{ $category->name }}</h4>
+                                <p><span class="highlight-white" style="color: black">
+                                        {{ $category->Products()->count() }} item</span></p>
+                                <a href="{{ route('category.show', $category->slug) }}"><span
+                                        class="highlight-white">Jelajahi</span></a>
                             </div>
                         </div>
                     </div>

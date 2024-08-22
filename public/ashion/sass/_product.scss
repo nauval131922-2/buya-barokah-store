@@ -9,7 +9,7 @@
 .filter__controls {
   text-align: right;
   margin-bottom: 50px;
-  
+
   li {
     font-size: 14px;
     list-style: none;
@@ -88,7 +88,7 @@
     position: absolute;
     left: 10px;
     top: 10px;
-    
+
     &.new {
       background: #36a300;
     }
@@ -113,7 +113,7 @@
   width: 100%;
   bottom: 30px;
   text-align: center;
-  
+
   li {
     list-style: none;
     display: inline-block;
@@ -139,7 +139,7 @@
 
       a {
         background: $primary-color;
-        
+
         span {
           color: $white-color;
           -webkit-transform: rotate(360deg);
@@ -176,7 +176,7 @@
   padding-top: 22px;
 
   h6 {
-    
+
     a {
       font-size: 14px;
       color: $heading-color;

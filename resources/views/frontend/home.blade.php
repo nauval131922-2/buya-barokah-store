@@ -7,25 +7,42 @@
                 <div class="col-lg-6 p-0">
                     <div class="categories__item categories__large__item set-bg"
                         data-setbg="{{ asset('me') }}/img/gambar_home.jpg">
-                        <div class="categories__text">
-                            <p>Beragam Merchandise Anime Mulai Dari Tshirt, Hoddie, Action Figure Semuanya Tersedia Di Anime
-                                Store.</p>
-                            <a href="#">Jelajahi Sekarang</a>
+
+                        <div class="blur-bg" style="background-image: url('{{ asset('me/img/gambar_home.jpg') }}');">
                         </div>
+                        <div class="categories__text">
+                            <p style="color: white"><span class="highlight-black">Al-Qur’an al-Quddus adalah al-Qur’an
+                                    pojok ber-Rasm ‘Uthmani yang diterbitkan oleh Pondok Tahfidh Yanbu’ul Qur’an Kudus yang
+                                    dilengkapi wakaf ibtida’, keterangan ghorib, dll oleh KH. M. Ulil Albab Arwani (pengasuh
+                                    Pondok Tahfidh Yanbu’ul Qur’an Kudus) yang memudahkan untuk belajar membaca al-Qur’an
+                                    dengan baik dan benar.
+                                    <br><br>
+                                    Al-Qur’an ini pertama kali dicetak pada tahun 2005 oleh percetakan PT Buya Barokah yang
+                                    merupakan salah satu perusahaan yang dirintis oleh keluarga KH. M. Arwani Amin.</span>
+                            </p>
+                            <a href="#new-product" style=""><span class="highlight-white">Jelajahi Sekarang</span></a>
+                        </div>
+
+
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="row">
                         @foreach ($data['new_categories'] as $category)
                             <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                                <div class="categories__item set-bg"
-                                    data-setbg="{{ asset('storage/' . $category->thumbnails) }}">
+                                <div class="categories__item">
+                                    <div class="blur-bg"
+                                        style="background-image: url('{{ asset('storage/' . $category->thumbnails) }}');">
+                                    </div>
                                     <div class="categories__text">
-                                        <h4>{{ $category->name }}</h4>
-                                        <p>{{ $category->Products()->count() }} item</p>
-                                        <a href="#">Jelajahi</a>
+                                        <h4 style="color: white" class="highlight-black">{{ $category->name }}</h4>
+                                        <p><span class="highlight-white" style="color: black">
+                                                {{ $category->Products()->count() }} item</span></p>
+                                        <a href="{{ route('category.show', $category->slug) }}"><span
+                                                class="highlight-white">Jelajahi</span></a>
                                     </div>
                                 </div>
+
                             </div>
                         @endforeach
                     </div>
@@ -36,7 +53,7 @@
     <!-- Categories Section End -->
 
     <!-- Product Section Begin -->
-    <section class="product spad">
+    <section class="product spad" id="new-product">
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-4">
